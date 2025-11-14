@@ -38,7 +38,22 @@ git clone https://github.com/MakiOmar/WordPress-Daily-Debug-Log.git
 
 ## Configuration
 
-No configuration is needed! The plugin works out of the box.
+### WordPress Debug Constants
+
+Add the following constants to your `wp-config.php` file for optimal error logging:
+
+```php
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', false);
+define('WP_DEBUG_LOG', false);
+```
+
+**Explanation:**
+- `WP_DEBUG`: Enables debug mode in WordPress
+- `WP_DEBUG_DISPLAY`: Disables displaying errors on the frontend (errors won't be shown to visitors)
+- `WP_DEBUG_LOG`: Disables WordPress default error logging to `wp-content/debug.log` (this plugin creates its own daily logs)
+
+**Note**: The plugin will still log errors even if `WP_DEBUG` is set to `false`, but it's recommended to enable it for comprehensive error capture.
 
 ### Log File Location
 
